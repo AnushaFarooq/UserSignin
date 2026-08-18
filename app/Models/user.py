@@ -20,6 +20,12 @@ class User(Base):
     # The unique ID Google/Apple/Microsoft gives this user (their "sub" claim)
     provider_user_id = Column(String, nullable=True, index=True)
 
+    # "personal" | "business" — set at signup, drives which dashboard/UI to show
+    account_type = Column(String, default="personal", nullable=False)
+
+    # Only set when account_type == "business"
+    business_name = Column(String, nullable=True)
+
     full_name = Column(String, nullable=True)
     is_active = Column(Boolean, default=True)
     is_verified = Column(Boolean, default=False)
