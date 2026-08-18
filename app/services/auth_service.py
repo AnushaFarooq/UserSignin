@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-from app.Models.user import User
-from app.Schemas.user import UserCreate
+from app.models.user import User
+from app.schemas.user import UserCreate
 from app.core.security import hash_password, verify_password, create_access_token
 
 
@@ -22,6 +22,8 @@ def signup_user(db: Session, user_in: UserCreate) -> User:
         email=user_in.email,
         hashed_password=hash_password(user_in.password),
         auth_provider="local",
+        account_type=user_in.account_type,
+        business_name=user_in.business_name,
     )
     db.add(user)
     db.commit()
