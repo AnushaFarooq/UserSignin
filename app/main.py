@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
 from app.db.base import Base, engine
-from app.Models import user  # noqa: F401  (import ensures table is registered)
+from app.models import user  # noqa: F401  (import ensures table is registered)
 from app.api.v1 import auth, oauth
 
 # Creates tables if they don't exist. In real production, use Alembic migrations
