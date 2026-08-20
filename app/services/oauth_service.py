@@ -15,7 +15,7 @@ from google.oauth2 import id_token as google_id_token
 from google.auth.transport import requests as google_requests
 
 from app.core.config import settings
-from app.Models.user import User
+from app.models.user import User
 
 
 def _get_or_create_oauth_user(
